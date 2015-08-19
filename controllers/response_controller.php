@@ -10,15 +10,15 @@ class response_controller
     $msg = "";
     if(empty($_POST['thread_id']) || !is_numeric($_POST['thread_id']))
     { 
-      $msg = "$B%9%l%C%I(BID$B$,F~NO$5$l$F$$$^$;$s(B.";
+      $msg = "スレッドIDが入力されていません.";
     }
     else if(empty($_POST['user']))
     {
-      $msg = "$B%f!<%6$,F~NO$5$l$F$$$^$;$s(B.";
+      $msg = "ユーザが入力されていません.";
     }
     else if(empty($_POST['comment']))
     {
-      $msg = "$BK\J8$,F~NO$5$l$F$$$^$;$s(B.";
+      $msg = "コメントが入力されていません.";
     } 
     else
     {
@@ -31,7 +31,7 @@ class response_controller
   {
     if(empty($_POST['thread_id']) || !is_numeric($_POST['thread_id']))
     {
-      $msg = "$B%9%l%C%I(BID$B$,F~NO$5$l$F$$$^$;$s(B.";
+      $msg = "スレッドIDが入力されていません.";
     }
     else
     {
