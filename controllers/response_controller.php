@@ -2,31 +2,41 @@
 
 require_once(__DIR__ . "/../models/Thread.php");
 
-class ThreadResponse
+class response_controller
 {
-  public static function create()
+
+  public static function create($models)
   {
+    $msg = "";
     if(empty($_POST['thread_id']) || !is_numeric($_POST['thread_id']))
-    {
-      return "スレッドIDが入力されていません.";
+    { 
+      $msg = "スレッドIDが入力されていません.";
     }
     else if(empty($_POST['user']))
     {
-      return "ユーザが入力されていません.";
+      $msg = "ユーザが入力されていません.";
     }
     else if(empty($_POST['comment']))
     {
-      return "本文が入力されていません.";
+      $msg = "本文が入力されていません.";
+    } 
+    else
+    {
+      $msg = $models->create_comment($_POST['thread_id'], $_POST['user'], $_POST['comment']);
     }
-    return Thread::create_comment($_POST['thread_id'], $_POST['user'], $_POST['comment']);
+    return $msg;
   }
 
-  public static function get_list()
+  public static function get_list($models)
   {
     if(empty($_POST['thread_id']) || !is_numeric($_POST['thread_id']))
     {
-      return "スレッドIDが入力されていません.";
+      $msg = "スレッドIDが入力されていません.";
     }
-    return Thread::get_res_list($_POST['thread_id']);
+    else
+    {
+      $msg = $models->get_res_list($_POST['thread_id']);
+    }
+    return $msg;
   }
 }

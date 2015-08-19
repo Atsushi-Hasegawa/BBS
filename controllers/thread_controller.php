@@ -2,7 +2,7 @@
 
 require_once(__DIR__ . "/../models/Thread.php");
 
-class ThreadController
+class thread_controller
 {
   public function create()
   {

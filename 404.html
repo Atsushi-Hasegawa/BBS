@@ -1,0 +1,21 @@
+<!DOCTYPE>
+<html>
+<head>
+ <meta http-equiv="Content-Type" 
+            content="text/html; charset=iso-2022-jp">
+<H1>404 Not Found</H1></head>
+<body>
+<?php 
+$image_list = array(
+                     "http://pds.exblog.jp/pds/1/200809/14/22/c0137122_63091.jpg",
+                     "",
+                     "",
+                     "",
+                     "");
+$index = rand(0,4);
+echo '<img src="{$image_list[$index]}">'
+?>
+ファイルの変更、削除されているため指定されたURLが存在しません。
+もう一度入力しなおしてください
+</body>
+</html>
