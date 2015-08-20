@@ -8,10 +8,6 @@ require_once(__DIR__ . "/libs/security.php");
 $url = $_GET['url'];
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $thread_id = null;
-/*if(isset($_GET['thread_id']))
-{
-  $thread_id = $_GET['thread_id'];
-}*/
 $path = __DIR__ . "/controllers/${url}.php";
 if(!is_file($path))
 {
