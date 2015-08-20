@@ -38,7 +38,7 @@ class DataBase
 
   public function query($sql, array $options)
   {
-    if(!is_string($sql)) return array();
+    if(!is_string($sql)) return false;
     $stmt = $this->pdo->prepare($sql);
     foreach($options as $option)
     {

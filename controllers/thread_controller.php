@@ -1,17 +1,33 @@
 <?php
 
-require_once(__DIR__ . "/../models/Thread.php");
-
+require_once(__DIR__ . "/../views/thread.php");
 class thread_controller
 {
+  private models;
+
+  public function __construct()
+  {
+    $this->models = new Thread();
+  }
+  public function execute()
+  {
+    if(!isset($_POST))
+    {
+      return $this->get_list($models);
+    }
+  }
+
   public function create()
   {
     $msg = ''
     if(empty($_POST['title']) 
     {
-      $msg = '$B%?%$%H%k$,F~NO$5$l$F$$$^$;$s(B.';
+      $msg = 'タイトルが入力されていません.';
     }
-    $msg = Thread::insert_thread($_POST['title']);
+    else
+    {
+      $msg = $this->models->insert_thread($_POST['title']);
+    }
     return $msg;
   }
 
@@ -19,21 +35,24 @@ class thread_controller
   {
     if(empty($_POST['thread_id']) || empty($_POST['title']))
     {
-      $msg = '$B%9%l%C%I(BID$B$,F~NO$5$l$F$$$^$;$s(B';
+      $msg = 'スレッドIDが入力されていません.';
     }
-    $msg = Thread::update_thread($_POST['title']);
+    else
+    {
+      $msg = $this->models->update_thread($_POST['title']);
+    }
     return $msg;
   }
 
-  public function getList($thread_id = null)
+  public function get_list($thread_id = null)
   {
-    if(empty($_POST['thread_id']) && !is_numeric($_POST['thread_id']))
+    /*if(empty($_POST['thread_id']) && !is_numeric($_POST['thread_id']))
     {
-      return Thread::get_thread_list();
+      return $models->get_thread_list();
     } 
     else
-    {
-      return Thread::get_thread_list($thread_id);
-    }
+    {*/
+      return $this->models->get_thread_list($thread_id);
+    //}
   }
 }
