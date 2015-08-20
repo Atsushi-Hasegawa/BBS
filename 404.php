@@ -17,6 +17,6 @@
 ?>
   <img src=<?php echo $image;?> width="128" height="128"><br>
 ファイルが削除されたか、サイトが閉鎖されたため指定されたページが見つかりません。
-入力し直してください
+<a href="index.php?page=1&url=thread">戻る</a>
 </body>
 </html>

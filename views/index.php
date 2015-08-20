@@ -9,7 +9,14 @@
   </head>
 <body>
 <a href="views/thread.php">記事作成</a>
-#全記事覧の表示(それぞれの記事のタイトルにリンクを貼る)
+<?php
+if (isset($_GET['thread_id']))
+{
+  echo "<form action='' method='post'>";
+  echo "<input type=hidden name='thread_id' value={$_GET['thread_id']}";
+  echo "</form>";
+}
+?>
 #記事の修正リンクをはる
 </body>
 </html>

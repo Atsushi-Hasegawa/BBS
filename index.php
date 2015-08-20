@@ -6,6 +6,12 @@ require_once(__DIR__ . "/libs/page.php");
 require_once(__DIR__ . "/libs/security.php");
 
 $url = $_GET['url'];
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$thread_id = null;
+/*if(isset($_GET['thread_id']))
+{
+  $thread_id = $_GET['thread_id'];
+}*/
 $path = __DIR__ . "/controllers/${url}.php";
 if(!is_file($path))
 {
@@ -15,13 +21,15 @@ if(!is_file($path))
 
 $format_url = ucwords($url);
 require_once($path);
-$controller = new $format_url();
-$results = $controller->execute();
+$controller = new $format_url($page);
+list($results, $display) = $controller->execute();
 if(is_array($results))
 {
-  echo "id&ensp;title<br>";
+  echo "<br>id&ensp;title<br>";
   foreach($results as $result)
   {
-    echo "${result['id']}&ensp;${result['title']}<br>";
+    
+    echo "<a href=index.php?url=thread&thread_id={$result['id']}>{$result['id']}</a>" . "&ensp;${result['title']}<br>";
   }
 }
+

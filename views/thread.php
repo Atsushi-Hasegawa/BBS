@@ -13,6 +13,6 @@
     <input type="hidden" name="type" value="create"><br>
     <button class="btn btn-primary" type="submit">投稿</button>
   </form>
-  <a href="../index.php?url=thread">戻る</a>
+  <a href="../index.php?page=1&url=thread">戻る</a>
   </body>
 </html>

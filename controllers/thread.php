@@ -3,25 +3,33 @@
 class Thread
 {
   private $models;
+  private $page;
+  private $disp_num = 10;
 
-  public function __construct()
+  public function __construct($page)
   {
     $this->models = new BBS();
+    $this->page = $page;
   }
 
   public function execute()
   {
-    if(!isset($_POST['type']))
+    if(!isset($_POST['type']) && !isset($_GET['thread_id']))
     {
       require_once(__DIR__ . "/../views/index.php");
-      return $this->get_list();
+      return array($this->get_list(), $this->display_thread_page());
     }
-    else if($_POST['type'] === "create")
+    else if(!isset($_POST['type']) && isset($_GET['thread_id']))
+    {
+      $thread_id = htmlspecialchars($_GET['thread_id']);
+      return array($this->models->get_thread_list($thread_id), array());
+    }
+    else if(isset($_POST['type']) && $_POST['type'] === "create")
     {
       require_once(__DIR__ . "/../views/thread.php");
       return $this->create();
     }
-    else if($_POST['type'] === "update")
+    else if(isset($_POST['type']) && $_POST['type'] === "update")
     {
       require_once(__DIR__ . "/../views/thread.php");
       return $this->update();
@@ -62,6 +70,19 @@ class Thread
     {
       $thread_id = htmlspacialchars($_POST['thread_id']);
     }
-    return $this->models->get_thread_list($thread_id);
+    $thread_list = $this->models->get_thread_list($thread_id);
+    return $this->models->get_thread_num($this->page, $this->disp_num);
+  }
+
+  public function display_thread_page()
+  {
+    $thread_id = null;
+    if(isset($_POST['thread_id']))
+    {
+      $thread_id = htmlspacialchars($_POST['thread_id']);
+    }
+    $thread_list = $this->models->get_thread_list($thread_id);
+    $max = ceil(count($thread_list)/$this->disp_num);
+    return Page::paging($this->page, $max);
   }
 }

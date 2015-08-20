@@ -2,7 +2,7 @@
 
 class Page
 {
-	public function paging($max, $page, $disp=5)
+	public static function paging($page, $max, $disp=5)
 	{
 		if(empty($page))
 		{

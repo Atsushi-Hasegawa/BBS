@@ -1,8 +1,8 @@
 <?php
-require_once(__DIR__ . "/models/BBS.php");
+require_once(__DIR__ . "/models/bbs.php");
 
 $title = "first submit!!!!!";
-$bbs = new BBS();
+$bbs = new bbs();
 $insert = $bbs->insert_thread($title);
 $update = $bbs->update_thread(2,$title);
 $user = "hoge";
