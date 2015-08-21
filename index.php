@@ -20,14 +20,18 @@ if(!is_file($path))
 $format_url = ucwords($url);
 require_once($path);
 $controller = new $format_url($page);
-list($results, $display) = $controller->execute();
-if(is_array($results))
+list($thread_list, $res_list) = $controller->execute();
+if(is_array($thread_list) && is_array($res_list))
 {
   echo "<br>id&ensp;title<br>";
-  foreach($results as $result)
+  foreach($thread_list as $thread)
   {
     
-    echo "<a href=index.php?url=thread&thread_id={$result['id']}>{$result['id']}</a>" . "&ensp;${result['title']}<br>";
+    echo "<a href=index.php?url=thread&thread_id={$thread['id']}>{$thread['id']}</a>" . "&ensp;${thread['title']}<br>";
+  }
+  foreach($res_list as $res)
+  {
+    echo "{$res['res_id']}&ensp;{$res['user']}&ensp;<br>{$res['comment']}<br>";
   }
 }
 

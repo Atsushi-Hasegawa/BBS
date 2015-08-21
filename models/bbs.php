@@ -75,7 +75,7 @@ class BBS extends DataBase
 		{
 			return array();
 		}
-		$sql = "SELECT * from response WHERE thread_id = :thread_id ORDER BY create_date DESC";
+		$sql = "SELECT * from response WHERE thread_id = :thread_id";
 		$bind_param = array(array(":thread_id", $thread_id, PDO::PARAM_INT));
 		return $this->select($sql, $bind_param);
 	}
@@ -90,6 +90,18 @@ class BBS extends DataBase
 		$bind_param = array(array(":thread_id", $thread_id, PDO::PARAM_INT));
 		$result = $this->select($sql, $bind_param);
 		return $result[0];
+	}
+
+	public function get_res_num_by_page($thread_id, $page, $num)
+	{
+		if(!is_numeric($thread_id))
+		{
+			return "正しい形式で入力されていません";
+		}
+		$offset = ($page-1) * $num;
+		$sql = "SELECT * from response WHERE thread_id = :thread_id LIMIT {$num} OFFSET {$offset}";
+		$bind_param = array(array(":thread_id", $thread_id, PDO::PARAM_INT));
+		return $this->select($sql, $bind_param);
 	}
 }
 ?>

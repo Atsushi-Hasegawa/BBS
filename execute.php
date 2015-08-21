@@ -1,6 +1,6 @@
 <?php
 require_once(__DIR__ . "/models/bbs.php");
-
+require_once(__DIR__ . "/libs/page.php");
 $title = "first submit!!!!!";
 $bbs = new bbs();
 $insert = $bbs->insert_thread($title);
@@ -13,7 +13,11 @@ $res_list = $bbs->get_res_list(2);
 $res_count = $bbs->get_res_num(1);
 $thread_num = $bbs->get_thread_num(1, 10);
 
-var_dump($res_count);
+$res_page = ceil(count($res_list)/5);
+Page::paging_res(2,$_GET['page'],$res_page);
+$res_id_display_num = $bbs->get_res_num_by_page(2,$_GET['page'],10);
+var_dump($res_id_display_num);
+
 function paging($max, $page, $disp=5)
 {
 	if(empty($page))
@@ -37,7 +41,7 @@ function paging($max, $page, $disp=5)
   }
 }
 $thread_page = ceil(count($thread_list)/5);
-paging($thread_page, $_GET['page']);
+//paging($thread_page, $_GET['page']);
 $thread_num = $bbs->get_thread_num($_GET['page'], 5);
-var_dump($thread_num);
+//var_dump($thread_num);
 ?>
