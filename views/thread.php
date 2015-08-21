@@ -11,7 +11,9 @@
   <body>
   <div class="center">
   <form action="../index.php?url=alter_thread" method="post">
-    タイトル<br><input type="text" name="title" size=30 maxlength="20" required><br>
+    タイトル<br>
+    <div class="col-xs-6 col-md-4"></div>
+    <div class="col-xs-6 col-md-4"><input type="text" class="form-control" name="title" size=30 maxlength="20" required></div><br>
     <input type="hidden" name="type" value="create"><br>
     <button class="btn btn-primary btn-lg" type="submit">投稿</button>
   </form>

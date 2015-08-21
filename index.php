@@ -21,17 +21,27 @@ $format_url = ucwords($url);
 require_once($path);
 $controller = new $format_url($page);
 list($thread_list, $res_list) = $controller->execute();
+
+echo '<br>';
 if(is_array($thread_list) && is_array($res_list))
 {
-  echo "<br>id&ensp;title<br>";
+  echo '<div class="panel panel-default">';
   foreach($thread_list as $thread)
   {
-    
-    echo "<a href=index.php?url=thread&thread_id={$thread['id']}>{$thread['id']}</a>" . "&ensp;${thread['title']}<br>";
+    echo '<div class="panel-heading">';
+    echo '<h4 class="panel-title">';
+    echo "<a href=index.php?url=thread&thread_id={$thread['id']}>{$thread['id']}</a>" . "&ensp;${thread['title']}";
+    echo '</h4>';
+    echo '</div>';
   }
+  echo '<div class="panel-body">';
   foreach($res_list as $res)
   {
-    echo "{$res['res_id']}&ensp;{$res['user']}&ensp;<br>{$res['comment']}<br>";
+    echo '<ul class="list-group">';
+    echo "<li class='list-group-item'>{$res['res_id']}&ensp;{$res['user']}&ensp;<br>{$res['comment']}</li>";
+    echo "</ul>";
   }
+  echo "</div>";
+  echo '</div>';
 }
 
