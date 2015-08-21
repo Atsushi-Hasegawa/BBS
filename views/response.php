@@ -11,19 +11,22 @@
   <body>
     <div class="center">
       <form action="http://192.168.33.12/BBS/index.php?url=response&thread_id=<?php echo $_GET['thread_id'];?>" method="post">
+        ユーザ名<br>
         <div class="col-xs-6 col-md-4"></div>
         <div class="col-xs-6 col-md-4">
-          <input type="text" name="user" value="" maxlength="20" placeholder="user" required><br><br>
-        </div>
+          <input class="form-control" type="text" name="user" placeholder="user" required>
+        </div><br><br>
+        コメント<br>
         <div class="col-xs-6 col-md-4"></div>
         <div class="col-xs-6 col-md-4">
-          <input type="text" name="comment" value="" placeholder="comment" required><br><br>
-        </div>
+          <input class="form-control" type="text" name="comment" placeholder="comment" required>
+        </div><br><br>
+        URL<br>
         <div class="col-xs-6 col-md-4"></div>
         <div class="col-xs-6 col-md-4">
-          <input type="text" name="url" placeholder="url"><br><br>
-        </div>
-        <input type="hidden" name="type" value="create"  required>
+          <input class="form-control" type="text" name="url" placeholder="url">
+        </div><br><br>
+        <input type="hidden" name="type" value="create" required>
         <input type="hidden" name="thread_id" value="<?php echo $_GET['thread_id'];?>">
         <button class="btn btn-primary btn-lg" type="submit">投稿</button>
       </form><br>
