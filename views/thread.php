@@ -8,11 +8,11 @@
     <H1>スレッド作成</H1>
   </head>
   <body>
-  <form action="../index.php?url=thread" method="post">
+  <form action="../index.php?url=alter_thread" method="post">
     タイトル:&ensp;<input type="text" name="title" size=30 maxlength="20" required><br>
     <input type="hidden" name="type" value="create"><br>
     <button class="btn btn-primary" type="submit">投稿</button>
   </form>
-  <a href="../index.php?page=1&url=thread">戻る</a>
+  <a href="http://192.168.33.11/BBS/index.php?page=1&url=thread">戻る</a>
   </body>
 </html>

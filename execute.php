@@ -13,6 +13,7 @@ $res_list = $bbs->get_res_list(2);
 $res_count = $bbs->get_res_num(1);
 $thread_num = $bbs->get_thread_num(1, 10);
 
+var_dump($res_count);
 function paging($max, $page, $disp=5)
 {
 	if(empty($page))

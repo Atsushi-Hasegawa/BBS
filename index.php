@@ -7,6 +7,8 @@ require_once(__DIR__ . "/libs/security.php");
 
 $url = $_GET['url'];
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
+$params = @explode("/" , $_GET["url"]);
+$test  = ucwords(array_shift($params));
 $thread_id = null;
 $path = __DIR__ . "/controllers/${url}.php";
 if(!is_file($path))
