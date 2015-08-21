@@ -1,5 +1,6 @@
 <?php
 
+require_once(__DIR__ . "/../views/index.php");
 class Thread
 {
   private $models;
@@ -14,53 +15,18 @@ class Thread
 
   public function execute()
   {
-    if(!isset($_POST['type']) && !isset($_GET['thread_id']))
+    if(!isset($_POST['type']))
     {
-      require_once(__DIR__ . "/../views/index.php");
-      return array($this->get_list(), $this->display_thread_page());
+      if(!isset($_GET['thread_id']))
+      {
+        return array($this->get_list(), $this->display_thread_page());
+      }
+      else
+      {
+        $thread_id = htmlspecialchars($_GET['thread_id']);
+        return array($this->models->get_thread_list($thread_id), array());
+      }
     }
-    else if(!isset($_POST['type']) && isset($_GET['thread_id']))
-    {
-      $thread_id = htmlspecialchars($_GET['thread_id']);
-      return array($this->models->get_thread_list($thread_id), array());
-    }
-    else if(isset($_POST['type']) && $_POST['type'] === "create")
-    {
-      require_once(__DIR__ . "/../views/thread.php");
-      return $this->create();
-    }
-    else if(isset($_POST['type']) && $_POST['type'] === "update")
-    {
-      require_once(__DIR__ . "/../views/thread.php");
-      return $this->update();
-    }
-  }
-
-  public function create()
-  {
-    $msg = "";
-    if(empty($_POST['title'])) 
-    {
-      $msg = 'タイトルが入力されていません.';
-    }
-    else
-    {
-      $msg = $this->models->insert_thread($_POST['title']);
-    }
-    return $msg;
-  }
-
-  public function update()
-  {
-    if(empty($_POST['thread_id']) || empty($_POST['title']))
-    {
-      $msg = 'スレッドIDが入力されていません.';
-    }
-    else
-    {
-      $msg = $this->models->update_thread($_POST['title']);
-    }
-    return $msg;
   }
 
   public function get_list()

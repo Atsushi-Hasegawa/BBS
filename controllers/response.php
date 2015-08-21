@@ -4,10 +4,12 @@ require_once(__DIR__ . "/../views/response.php");
 class Response
 {
   private $models;
+  private $page;
 
-  public function __construct()
+  public function __construct($page)
   {
     $this->models = new BBS();
+    $this->page = $page;
   }
 
   public function execute()
