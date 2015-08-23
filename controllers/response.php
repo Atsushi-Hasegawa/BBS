@@ -15,7 +15,7 @@ class Response
 	public function execute()
 	{
 		$msg = "";
-		if($_POST['type'] === "create")
+		if(isset($_POST['type']) && $_POST['type'] === "create")
 		{
 			$msg = $this->create();  
 		}
@@ -29,15 +29,15 @@ class Response
 	public function create()
 	{
 		$msg = "";
-		if(!isset($_POST['thread_id']) || empty($_POST['thread_id']) || !is_numeric($_POST['thread_id']))
+		if(!isset($_POST['thread_id']) && !is_numeric($_POST['thread_id']))
 		{ 
 			$msg = "スレッドIDが入力されていません.";
 		}
-		else if(empty($_POST['user']))
+		else if(!isset($_POST['user']) && !isset($_POST['user']))
 		{
 			$msg = "ユーザが入力されていません.";
 		}
-		else if(empty($_POST['comment']))
+		else if(!isset($_POST['comment']) && !is_string($_POST['comment']))
 		{
 			$msg = "コメントが入力されていません.";
 		} 
