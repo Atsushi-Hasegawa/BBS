@@ -11,7 +11,7 @@
 <body>
 <div class="nav nav-pills">
 <li role="presentation" class="active"><a href="http://192.168.33.12/BBS/index.php?url=thread">HOME</a></li>
-<li role="presentation"><a href="http://192.168.33.12/BBS/views/thread.php">記事作成</a></li>
+<li role="presentation"><a href="index.php?url=alter_thread">記事作成</a></li>
 <?php
   if(isset($_GET['thread_id']))
   {
