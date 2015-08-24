@@ -28,7 +28,8 @@ class Login
   {
     if($this->models->authenticate($user, $passwd))
     {
-      header("Location: http://192.168.33.12/BBS/index.php?url=thread");
+      $_SESSION['user'] = $_POST['user'];
+      header("Location: http://localhost:8080/BBS/thread");
     }
     else
     {

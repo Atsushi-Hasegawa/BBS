@@ -14,7 +14,11 @@ class Thread
 	}
 
 	public function execute()
-	{
+  {
+    if(empty($_SESSION['user']))
+    {
+      return header("Location: http://localhost:8080/BBS/login");
+    }
 		if(!isset($_POST['type']))
 		{
 			if(!isset($_GET['thread_id']))

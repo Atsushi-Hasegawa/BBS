@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <link rel="stylesheet" href="http://192.168.33.12/BBS/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://192.168.33.12/BBS/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="http://192.168.33.12/BBS/template/css/stylesheet.css">
+    <link rel="stylesheet" href="http://localhost:8080/BBS/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost:8080/BBS/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="http://localhost:8080/BBS/template/css/stylesheet.css">
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="template/js/response_insert.js"></script>
@@ -27,10 +27,10 @@
         <div class="col-xs-6 col-md-4">
           <input class="form-control" type="text" name="url" id="url" placeholder="url">
         </div><br>
-        <input type="hidden" name="type" value="create" required>
-        <input type="hidden" name="thread_id" value="<?php echo $_GET['thread_id'];?>"><br>
+        <input type="hidden" id="type" name="type" value="create" required>
+        <input type="hidden" id="thread_id" name="thread_id" value="<?php echo $_GET['thread_id'];?>"><br>
         <button class="btn btn-primary btn-lg" type="submit" id="submit">投稿</button><br>
-      <H4><a href="http://192.168.33.12/BBS/index.php?url=thread">戻る</a></H4>
+      <H4><a href="http://localhost:8080/BBS/index.php?url=thread">戻る</a></H4>
       <font color="red"><span id="alert"></span></font>
     </div>
   </body>

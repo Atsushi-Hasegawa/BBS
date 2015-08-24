@@ -14,7 +14,11 @@ class Response
 
 	public function execute()
 	{
-		$msg = "";
+    $msg = "";
+    if(empty($_SESSION['user']))
+    {
+      return header("Location: http://localhost:8080/BBS/login");
+    }
 		if(isset($_POST['type']) && $_POST['type'] === "create")
 		{
 			$msg = $this->create();  
@@ -22,18 +26,18 @@ class Response
 		else
 		{
 			$msg = "type[操作]が入力されていません";
-		}
+    }
 		return $msg;
 	}
 
 	public function create()
 	{
-		$msg = "";
+    $msg = "";
 		if(!isset($_POST['thread_id']) && !is_numeric($_POST['thread_id']))
 		{ 
 			$msg = "スレッドIDが入力されていません.";
 		}
-		else if(!isset($_POST['user']) && !isset($_POST['user']))
+		else if(!isset($_POST['user']) && !is_string($_POST['user']))
 		{
 			$msg = "ユーザが入力されていません.";
 		}

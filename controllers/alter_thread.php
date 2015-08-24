@@ -15,9 +15,13 @@ class Alter_Thread
 	{
 		$msg = "";
     $path = null;
+    if(empty($_SESSION['user']))
+    {
+      return header("Location: http://localhost:8080/BBS/login");
+    }
 		$sw = isset($_GET['type'])? $_GET['type']: null;
-		switch($sw)
-		{
+    switch($sw)
+ 		{
 			case "create":
 				$msg = $this->create();
 				$path = __DIR__ . "/../views/create.php";
@@ -41,15 +45,15 @@ class Alter_Thread
 
 	public function create()
 	{
-		$msg = "";
+    $msg = "";
 		if(empty($_POST['title'])) 
 		{
 			$msg = 'タイトルが入力されていません.';
 		}
 		else
-		{
+    {
 			$msg = $this->models->insert_thread($_POST['title']);
-		}
+    }
 		return $msg;
 	}
 
@@ -61,8 +65,10 @@ class Alter_Thread
 			$msg = 'スレッドIDが入力されていません.';
 		}
 		else
-		{
-			$msg = $this->models->update_thread($_POST['title']);
+    {
+      $title = htmlspecialchars($_POST['title']);
+      $thread_id = htmlspecialchars($_POST['thread_id']);
+			$msg = $this->models->update_thread($thread_id, $title);
 		}
 		return $msg;
 	}

@@ -6,6 +6,8 @@ require_once(__DIR__ . "/models/user.php");
 require_once(__DIR__ . "/libs/page.php");
 require_once(__DIR__ . "/libs/security.php");
 
+session_start();
+session_regenerate_id(true);
 $url = $_GET['url'];
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $params = @explode("/" , $_GET["url"]);
@@ -15,27 +17,13 @@ $path = __DIR__ . "/controllers/${url}.php";
 if(!is_file($path))
 {
   header("HTTP/1.1 404 Not Found");
-  header("Location: http://192.168.33.12/BBS/404.php");
+  header("Location: http://localhost:8080/BBS/404.php");
 }
 
 $format_url = ucwords($url);
 require_once($path);
 $controller = new $format_url($page);
 list($thread_list, $res_list) = $controller->execute();
-
-/*$result = array();
-$thread_id = 0;
-foreach($thread_list as $thread)
-{
-  $result[$thread_id]  = array(
-                         "id" => $thread['id'],
-                         "title" => $thread['title']
-                         );
- $thread_id++;
-}
-$init = array("result" => $result);
-*/
-//echo json_encode($init);
 
 echo '<br>';
 if(is_array($thread_list) && is_array($res_list))

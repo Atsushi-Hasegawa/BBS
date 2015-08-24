@@ -6,7 +6,7 @@ $(function() {
     {
       $.ajax({
          type:"POST",
-         url:"http://192.168.33.12/BBS/index.php?url=login",
+         url:"login",
          data:{"user":$("#user").val(),
                "passwd":$("#passwd").val()
          },

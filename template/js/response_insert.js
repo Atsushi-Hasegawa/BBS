@@ -4,7 +4,7 @@ $(function() {
       if(check_input() == true) {
       $.ajax({
              type: "POST",
-             url: "http://192.168.33.12/BBS/index.php?url=response&thread_id=" + $("thread_id").val(),
+             url: "http://localhost:8080/BBS/index.php?url=response&thread_id=" + $("#thread_id").val(),
              data:{"user":$("#user").val(), 
                    "comment":$("#comment").val(),
                    "url":$("#url").val(),
