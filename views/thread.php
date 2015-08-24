@@ -1,24 +1,27 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <link rel="stylesheet" href="http://192.168.33.12/BBS/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://192.168.33.12/BBS/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="http://192.168.33.12/BBS/css/bootstrap-theme.css">
     <link rel="stylesheet" href="http://192.168.33.12/BBS/template/css/stylesheet.css">
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="http://192.168.33.11/BBS/template/js/insert.js"></script>
-    <script src=="https://192.168.33.12/BBS/js/bootstrap.min.js"></script>
-    <div class="page-header center"><H1>スレッド作成</H1></div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <div class='page-header'><H1>掲示板</H1></div>
   </head>
-  <body>
-  <div class="center">
-    タイトル<br>
-    <div class="col-xs-6 col-md-4"></div>
-    <div class="col-xs-6 col-md-4"><input type="text" class="form-control" id="title" name="title" size=30  required></div><br>
-    <input type="hidden" name="type" id="type" value="create">
-    <button class="btn btn-primary btn-lg" type="submit" id="submit">投稿</button><br>
-  <a href="http://192.168.33.12/BBS/index.php?url=thread">戻る</a><br>
-  <font color="red"><span id="title_alert"></span></font>
-  </div>
-  </body>
+<body>
+<div class="nav nav-pills">
+<li role="presentation" class="active"><a href="http://192.168.33.12/BBS/index.php?url=thread">HOME</a></li>
+<li role="presentation"><a href="index.php?url=alter_thread&type=create">記事作成</a></li>
+<?php
+  if(isset($_GET['thread_id']))
+  {
+    echo "<li role='presentation'><a href=http://192.168.33.12/BBS/views/response.php?thread_id={$_GET['thread_id']}>レス作成</a>";
+    echo "<li role='presentation'><a href=http://192.168.33.12/BBS/index.php?url=alter_thread&type=delete&thread_id={$_GET['thread_id']}>スレッド削除</a>";
+    echo "<li role='presentation'><a href=http://192.168.33.12/BBS/index.php?url=alter_thread&type=update&thread_id={$_GET['thread_id']}>スレッド修正</a>";  
+  }
+?>
+<li role="presentation"><a href="index.php?url=logout">Logout</a></li>
+</div>
+</body>
 </html>

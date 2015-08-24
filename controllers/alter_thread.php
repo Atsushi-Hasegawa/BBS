@@ -1,6 +1,5 @@
 <?php
 
-require_once(__DIR__ . "/../views/thread.php");
 class Alter_Thread
 {
 	private $models;
@@ -15,21 +14,28 @@ class Alter_Thread
 	public function execute()
 	{
 		$msg = "";
-		if(isset($_POST['type']))
+    $path = null;
+		$sw = isset($_GET['type'])? $_GET['type']: null;
+		switch($sw)
 		{
-			if($_POST['type'] === "create")
-			{
+			case "create":
 				$msg = $this->create();
-			}
-			else if($_POST['type'] === "update")
-			{
+				$path = __DIR__ . "/../views/create.php";
+				break;
+			case "update":
 				$msg = $this->update();
-			}
+				$path = __DIR__ . "/../views/update.php";
+				break;
+			case "delete":
+				$msg = $this->delete();
+				$path = __DIR__ . "/../views/delete.php";
+				break;
+			default:
+				$msg = 'type[操作]が入力されていません.';
+				$path = __DIR__ . "/../views/index.php";
+				break;
 		}
-		else
-		{
-			$msg = 'type[操作]が入力されていません.';
-		}
+    require_once($path);
 		return $msg;
 	}
 
@@ -57,6 +63,21 @@ class Alter_Thread
 		else
 		{
 			$msg = $this->models->update_thread($_POST['title']);
+		}
+		return $msg;
+	}
+
+	public function delete()
+	{
+		$msg = "";
+		if(!empty($_POST['thread_id']))
+		{
+			$thread_id = htmlspecialchars($_POST['thread_id']);
+			$msg = $this->models->delete($thread_id);
+		}
+		else 
+		{
+			$msg = "スレッドIDが入力されていません";
 		}
 		return $msg;
 	}

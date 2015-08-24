@@ -2,6 +2,7 @@
 
 header('Content-Type: text/html; charset="UTF-8"');
 require_once(__DIR__ . "/models/bbs.php");
+require_once(__DIR__ . "/models/user.php");
 require_once(__DIR__ . "/libs/page.php");
 require_once(__DIR__ . "/libs/security.php");
 
@@ -21,6 +22,20 @@ $format_url = ucwords($url);
 require_once($path);
 $controller = new $format_url($page);
 list($thread_list, $res_list) = $controller->execute();
+
+/*$result = array();
+$thread_id = 0;
+foreach($thread_list as $thread)
+{
+  $result[$thread_id]  = array(
+                         "id" => $thread['id'],
+                         "title" => $thread['title']
+                         );
+ $thread_id++;
+}
+$init = array("result" => $result);
+*/
+//echo json_encode($init);
 
 echo '<br>';
 if(is_array($thread_list) && is_array($res_list))

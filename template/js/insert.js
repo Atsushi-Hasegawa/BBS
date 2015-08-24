@@ -4,7 +4,7 @@ $(function() {
       if(check_input() == true) {
       $.ajax({
              type: "POST",
-             url: "http://192.168.33.11/BBS/index.php?url=alter_thread",
+             url: "http://192.168.33.12/BBS/index.php?url=alter_thread",
              data:{"title":$("#title").val(), 
                    "type":$("#type").val()
               },

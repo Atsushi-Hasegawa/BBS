@@ -68,6 +68,14 @@ class BBS extends DataBase
 		$sql = "SELECT * from thread LIMIT {$num} OFFSET {$offset}";
 		return $this->select($sql, array());
 	}
+  
+  public function delete($thread_id)
+  {
+    if(empty($thread_id)) return array();
+    $sql = "DELETE FROM thread WHERE id=:thread_id";
+    $bind_param = array(array(":thread_id", $thread_id, PDO::PARAM_STR));
+    return $this->query($sql, $bind_param);
+  }
 
 	public function get_res_list($thread_id = null)
 	{
