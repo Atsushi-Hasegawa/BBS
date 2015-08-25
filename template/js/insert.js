@@ -3,7 +3,7 @@ $(function() {
       if(check_input() == true) {
       $.ajax({
              type: "POST",
-             url: "http://localhost:8081/BBS/index.php?url=alter_thread&type=create",
+             url: "http://localhost:8080/BBS/index.php?url=alter_thread&type=create",
              data:{"title":$("#title").val(), 
                    "type":$("#type").val()
               },

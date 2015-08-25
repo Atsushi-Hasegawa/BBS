@@ -3,14 +3,13 @@ $(function() {
       if(check_input() == true) {
       $.ajax({
              type: "POST",
-             url: "http://localhost:8081/BBS/index.php?url=alter_thread&type=update",
+             url: "http://localhost:8080/BBS/index.php?url=alter_thread&type=update",
              data:{"title":$("#title").val(), 
                    "type":$("#type").val(),
                    "thread_id":$("#thread_id").val()
               },
              success: function(msg) {
                $("#title").val('');
-               $("#title_alert").text('スレッドの内容を修正しました');
              },
              error: function(msg){
                console.log(msg);

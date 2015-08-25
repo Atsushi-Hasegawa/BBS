@@ -4,7 +4,6 @@ class Logout
 {
   public function execute()
   {
-    session_destroy();
-     return header("Location: index.php?url=login");
+     return header("Location: http://localhost:8080/BBS/login");
   }
 }

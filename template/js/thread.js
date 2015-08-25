@@ -8,7 +8,6 @@ $(function() {
     {
       response = msg;
       get_thread_data();
-      $("#disp_thread").text("スレッドの登録が完了しました");
     }
   });
 });
