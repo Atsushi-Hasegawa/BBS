@@ -17,14 +17,13 @@ $path = __DIR__ . "/controllers/${url}.php";
 if(!is_file($path))
 {
   header("HTTP/1.1 404 Not Found");
-  header("Location: http://localhost:8080/BBS/404.php");
+  header("Location: http://localhost:8081/BBS/404.php");
 }
 
 $format_url = ucwords($url);
 require_once($path);
 $controller = new $format_url($page);
 list($thread_list, $res_list) = $controller->execute();
-
 echo '<br>';
 if(is_array($thread_list) && is_array($res_list))
 {
