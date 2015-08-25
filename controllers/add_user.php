@@ -11,11 +11,16 @@ class Add_User
 	}
 
 	public function execute()
-	{
-		echo "hogehogehoge1";
-		$name = Security::http_parse($_POST['name']);
-		$password = Security::http_parse($_POST['password']);
-		echo "hogehogehoge2";
-		return $this->models->add($name, $password);
-	}
+  {
+    if(isset($_POST['name'],$_POST['password']))
+    {
+      $name = Security::http_parse($_POST['name']);
+      $password = Security::http_parse($_POST['password']);
+      return $this->models->add($name, $password);
+    }
+    else 
+    {
+      return false;
+    }
+  }
 }
