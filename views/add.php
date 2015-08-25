@@ -7,13 +7,11 @@
     <link rel="stylesheet" href="http://localhost:8081/BBS/template/css/stylesheet.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <div class='page-header center'><H1>ログイン画面</H1>
-		  <div class='center'><H4><a href="index.php?url=add_user">新規登録</a></H4></div>
-		</div>
+    <script src="template/js/add_user.js"></script>
+    <div class='page-header center'><H1>新規登録</H1></div>
   </head>
   <body>
   <div class="center">
-  <form action="index.php?url=login" method="post">
   ユーザ名<br>
   <div class="col-xs-6 col-md-4"></div>
   <div class="col-xs-6 col-md-4">
@@ -22,10 +20,11 @@
   パスワード<br>
   <div class="col-xs-6 col-md-4"></div>
   <div class="col-xs-6 col-md-4">
-    <input type="text" class="form-control" name="passwd" id="passwd" value="">
+    <input type="text" class="form-control" name="passwd" id="password" value="">
   </div><br><br>
-  <button class="btn btn-primary btn-lg" type="submit" id="submit">ログイン</button><br>
-  </div>
-  <form>
+  <button class="btn btn-primary btn-lg" type="submit" id="submit">登録</button><br>
+	<span id="alert"></span>
+	<div class='center'><H4><a href="index.php?url=login">戻る</a></H4></div>
+	</div>
   </body>
 </html>

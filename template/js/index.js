@@ -6,7 +6,7 @@ $(function() {
     {
       $.ajax({
          type:"POST",
-         url:"login",
+         url:"index.php?url=login",
          data:{"user":$("#user").val(),
                "passwd":$("#passwd").val()
          },

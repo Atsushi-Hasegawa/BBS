@@ -40,7 +40,9 @@ if(is_array($thread_list) && is_array($res_list))
   foreach($res_list as $res)
   {
     echo '<ul class="list-group">';
-    echo "<li class='list-group-item'>{$res['res_id']}&ensp;{$res['user']}&ensp;<br>{$res['comment']}</li>";
+    echo "<li class='list-group-item'>{$res['res_id']}&ensp;{$res['user']}&ensp;<br>{$res['comment']}";
+		echo "<br><a href={$res['url']}>${res['url']}</a>";
+		echo "</li>";
     echo "</ul>";
   }
   echo "</div>";

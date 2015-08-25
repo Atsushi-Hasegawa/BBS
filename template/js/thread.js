@@ -3,7 +3,7 @@ $(function() {
   $.ajax
   ({
     type: "GET",
-    url: "thread",
+    url: "index.php?url=thread",
     success: function(msg)
     {
       response = msg;
