@@ -52,7 +52,8 @@ class Alter_Thread
     }
     else
     {
-      $msg = $this->models->insert_thread($_POST['title']);
+      $title = htmlspecialchars($_POST['title']);
+      $msg = $this->models->insert_thread($title);
     }
     return $msg;
   }

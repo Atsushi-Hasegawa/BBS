@@ -47,7 +47,11 @@ class Response
     }
     else
     {
-      $msg = $this->models->insert_comment($_POST['thread_id'], $_POST['user'], $_POST['comment'],$_POST['url']);
+      $thread_id = htmlspecialchars($_POST['thread_id']);
+      $user = htmlspecialchars($_POST['user']);
+      $comment = htmlspecialchars($_POST['comment']);
+      $url = htmlspecialchars($_POST['user']);
+      $msg = $this->models->insert_comment($thread_id, $user, $comment,$url);
     }
     return $msg;
   }

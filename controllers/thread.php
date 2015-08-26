@@ -46,7 +46,7 @@ class Thread
     $thread_id = null;
     if(isset($_POST['thread_id']))
     {
-      $thread_id = htmlspacialchars($_POST['thread_id']);
+      $thread_id = htmlspecialchars($_POST['thread_id']);
     }
     $thread_list = $this->models->get_thread_list($thread_id);
     return $this->models->get_thread_num($this->page, $this->disp_num);
@@ -57,7 +57,7 @@ class Thread
     $thread_id = null;
     if(isset($_POST['thread_id']))
     {
-      $thread_id = htmlspacialchars($_POST['thread_id']);
+      $thread_id = htmlspecialchars($_POST['thread_id']);
     }
     $thread_list = $this->models->get_thread_list($thread_id);
     $max = ceil(count($thread_list)/$this->disp_num);
