@@ -7,7 +7,7 @@ $(function(){
             "type":$("#type").val()
        },
       success: function(msg) {
-        $("#delete_alert").text("¿¿¿¿¿¿¿¿¿¿¿");
+        $("#delete_alert").text("¿¿¿¿¿¿¿¿¿");
       }
    });
  });
