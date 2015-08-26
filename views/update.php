@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="http://localhost:8081/BBS/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://localhost:8081/BBS/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="http://localhost:8081/BBS/template/css/stylesheet.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="template/css/stylesheet.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="template/js/update.js"></script>
@@ -20,7 +20,7 @@
     </div><br><br>
     <button type="submit"class="btn btn-lg btn-primary" id="submit">更新</button>
     <font color="red"><span id="update_alert"></span></font><br>
-    <a href="http://localhost:8081/BBS/index.php?url=thread">戻る</a>
+    <a href="index.php?url=thread">戻る</a>
    </div>
   </body>
 </html>

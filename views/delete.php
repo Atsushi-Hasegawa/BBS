@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="http://localhost:8081/BBS/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://localhost:8081/BBS/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="http://localhost:8081/BBS/template/css/stylesheet.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="template/css/stylesheet.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="template/js/delete.js"></script>
