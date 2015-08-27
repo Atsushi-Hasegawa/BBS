@@ -50,7 +50,7 @@ class Response
 			$thread_id = htmlspecialchars($_POST['thread_id']);
 			$user = htmlspecialchars($_POST['user']);
 			$comment = htmlspecialchars($_POST['comment']);
-			$url = htmlspecialchars($_POST['user']);
+			$url = htmlspecialchars($_POST['url']);
 			$image = htmlspecialchars($this->upload_img());
 			$msg = $this->models->insert_comment($thread_id, $user, $comment,$url, $image);
 		}
