@@ -2,26 +2,27 @@
 $(function() {
 	$('#submit').click(function() {
       if(check_input() == true) {
-      console.log($("#response").get(0));
 			var file = new FormData($("#response").get()[3]);
 			$.ajax({
              type: "POST",
              url: "index.php?url=response&thread_id=" + $("#thread_id").val(),
-             data:{"user":$("#user").val(), 
-                   "comment":$("#comment").val(),
-                   "url":$("#url").val(),
-                   "type":$("#type").val(),
-                   "thread_id":$("#thread_id").val(),
-                   "upfile":file
-              },
-							processData:false,
-							contentType:false,
-             success: function(msg) {
-               $("#user").val('');
-               $("#comment").val('');
-               $("#url").val('');
-               $("#alert").text('コメントを投稿しました');
-             }
+             data:{
+							 "user":$("#user").val(), 
+							 "comment":$("#comment").val(),
+							 "url":$("#url").val(),
+							 "type":$("#type").val(),
+							 "thread_id":$("#thread_id").val(),
+							 "upfile":file
+             },
+						 processData:false,
+						 contentType:false,
+						 mimeType:"multipart/form-data",
+						 success: function(msg) {
+							 $("#user").val('');
+							 $("#comment").val('');
+							 $("#url").val('');
+							 $("#alert").text('コメントを投稿しました');
+						 }
       });
       }
     });
