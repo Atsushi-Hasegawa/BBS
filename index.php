@@ -42,6 +42,7 @@ if(is_array($thread_list) && is_array($res_list))
     echo '<ul class="list-group">';
     echo "<li class='list-group-item'>{$res['res_id']}&ensp;{$res['user']}&ensp;<br>{$res['comment']}";
 		echo "<br><a href={$res['url']}>${res['url']}</a>";
+		echo "<br><img src={$res['image']} width=256 height=256>";
 		echo "</li>";
     echo "</ul>";
   }

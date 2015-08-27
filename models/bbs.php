@@ -3,12 +3,12 @@ require_once(__DIR__ . "/database.php");
 
 class BBS extends DataBase
 {
- public function insert_comment($thread_id, $user, $comment, $url)
+ public function insert_comment($thread_id, $user, $comment, $url, $image)
  {
   if(!is_numeric($thread_id) || !is_string($user) || !is_string($comment)) return array();
   $res  = $this->get_res_num($thread_id);
-  $sql = "INSERT INTO response(thread_id, user, comment, create_date, res_id, url) ";
-  $sql .= "VALUES(:thread_id, :user, :comment, :create_date, :res_id, :url)";
+  $sql = "INSERT INTO response(thread_id, user, comment, create_date, res_id, url, image) ";
+  $sql .= "VALUES(:thread_id, :user, :comment, :create_date, :res_id, :url, :image)";
   $date = date('Y-m-d H:i:s');
   $bind_param = array(
    array(":thread_id", $thread_id, PDO::PARAM_INT),
@@ -16,7 +16,8 @@ class BBS extends DataBase
    array(":comment" , $comment, PDO::PARAM_STR),
    array(":create_date", $date, PDO::PARAM_STR),
    array(":url", $url, PDO::PARAM_STR),
-   array(":res_id", (int)$res["count(res_id)"]+1, PDO::PARAM_INT)
+   array(":res_id", (int)$res["count(res_id)"]+1, PDO::PARAM_INT),
+   array(":image", $image, PDO::PARAM_LOB)
   );
   return $this->query($sql, $bind_param);
  }
