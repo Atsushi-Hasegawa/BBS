@@ -19,8 +19,8 @@
       <input type="text" class="form-control" id="title" value="">
     </div><br><br>
     <button type="submit"class="btn btn-lg btn-primary" id="submit">更新</button><br>
+    <h4><a href="index.php?url=thread">戻る</a></h3>
     <font color="red"><span id="update_alert"></span></font><br>
-    <a href="index.php?url=thread"><h3>戻る</h3></a>
    </div>
   </body>
 </html>
