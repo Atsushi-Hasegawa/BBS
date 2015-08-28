@@ -36,22 +36,22 @@ if(is_array($thread_list) && is_array($res_list))
     echo '</h4>';
     echo '</div>';
   }
+  echo '</div>';
   echo '<div class="panel-body">';
   foreach($res_list as $res)
   {
     echo '<ul class="list-group">';
     echo "<li class='list-group-item'>{$res['res_id']}&ensp;{$res['user']}&ensp;<br>{$res['comment']}";
-		if (!empty($res['url']))
-		{
-			echo "<br><a href={$res['url']}>${res['url']}</a>";
-		}
-		if(!empty($res['image']))
-		{
-			echo "<br><img src='{$res['image']}' width=256 height=256>";
-		}
+    if (!empty($res['url']))
+    {
+      echo "<br><a href={$res['url']}>${res['url']}</a>";
+    }
+    if(!empty($res['image']))
+    {
+      echo "<br><img src='{$res['image']}' width=256 height=256>";
+    }
     echo "</li></ul>";
   }
-  echo "</div>";
   echo '</div>';
 }
 
