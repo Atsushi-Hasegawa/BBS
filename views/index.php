@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset='utf-8'>
-    <link rel="stylesheet" href="http://localhost:8081/BBS/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://localhost:8081/BBS/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="http://localhost:8081/BBS/template/css/stylesheet.css">
+    <link rel="stylesheet" href="template/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="template/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="template/css/stylesheet.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="template/bootstrap/js/bootstrap.min.js"></script>
     <div class='page-header center'><H1>ログイン画面</H1>
-		  <div class='center'><H4><a href="index.php?url=add_user">新規登録</a></H4></div>
-		</div>
+    <div class='center'><H4><a href="index.php?url=add_user">新規登録</a></H4></div>
+    </div>
   </head>
   <body>
   <div class="center">

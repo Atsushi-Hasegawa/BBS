@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="template/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="template/bootstrap/css/bootstrap-theme.css">
     <link rel="stylesheet" href="template/css/stylesheet.css">
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="template/js/insert.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="template/bootstrap/js/bootstrap.min.js"></script>
     <div class="page-header center"><H1>スレッド作成</H1></div>
   </head>
   <body>
