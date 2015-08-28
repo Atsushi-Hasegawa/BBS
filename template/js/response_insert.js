@@ -1,28 +1,31 @@
-
 $(function() {
-	$('#submit').click(function() {
+    $('form').submit(function(e) {
+      e.preventDefault();
+
       if(check_input() == true) {
-			var file = new FormData($("#response").get()[3]);
-			$.ajax({
-             type: "POST",
-             url: "index.php?url=response&thread_id=" + $("#thread_id").val(),
-             data:{
-							 "user":$("#user").val(), 
-							 "comment":$("#comment").val(),
-							 "url":$("#url").val(),
-							 "type":$("#type").val(),
-							 "thread_id":$("#thread_id").val(),
-							 "upfile":file
-             },
-						 processData:false,
-						 contentType:false,
-						 mimeType:"multipart/form-data",
-						 success: function(msg) {
-							 $("#user").val('');
-							 $("#comment").val('');
-							 $("#url").val('');
-							 $("#alert").text('コメントを投稿しました');
-						 }
+      var file = new FormData($(this)[0]);
+      console.log(file);
+      $.ajax({
+        type: "POST",
+        url: "index.php?url=response&thread_id=" + $("#thread_id").val(),
+        processData:false,
+        contentType:false,
+        mimeType:"multipart/form-data",
+        data:{
+          "user":$("#user").val(), 
+          "comment":$("#comment").val(),
+          "url":$("#url").val(),
+          "type":$("#type").val(),
+          "thread_id":$("#thread_id").val(),
+          "upfile":file
+        },
+        success: function(msg) {
+          $("#user").val('');
+          $("#comment").val('');
+          $("#url").val('');
+          $('form').find(':submit').attr('disabled', true);
+          $("#alert").text('コメントを投稿しました');
+        }
       });
       }
     });
@@ -30,14 +33,15 @@ $(function() {
 
 function select_image_file()
 {
-	$('.open-file-dialog').on('click', function() {
-		  $(this).next('input[type="file"]').trigger('click');
-	});
+  $('.open-file-dialog').on('click', function() {
+      $(this).next('input[type="file"]').trigger('click');
+  });
 
-	$('.file').change(function() {
-		  $(this).closest('.form-group').find('.file-text').val($(this).val());
-	});
+  $('.file').change(function() {
+      $(this).closest('.form-group').find('.file-text').val($(this).val());
+  });
 }
+
 function check_input()
 {
   if($("#user").val() == '' || $("#comment").val() == '')
