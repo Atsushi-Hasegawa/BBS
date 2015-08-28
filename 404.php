@@ -2,9 +2,9 @@
 <html>
 <head>
  <meta charset='utf-8'>
- <link rel="stylesheet" href="http://localhost:8081/BBS/css/bootstrap.min.css">
- <link rel="stylesheet" href="http://localhost:8081/BBS/css/bootstrap-theme.min.css">
- <link rel="stylesheet" href="http://localhost:8081/BBS/template/css/stylesheet.css">
+ <link rel="stylesheet" href="template/bootstrap//css/bootstrap.min.css">
+ <link rel="stylesheet" href="template/bootstrap//css/bootstrap-theme.min.css">
+ <link rel="stylesheet" href="template/css/stylesheet.css">
 <div class="page-header center"><H1>404 Not Found</H1></div>
 </head>
 <body>

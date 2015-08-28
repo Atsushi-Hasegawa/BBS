@@ -17,7 +17,7 @@ $path = __DIR__ . "/controllers/${url}.php";
 if(!is_file($path))
 {
   header("HTTP/1.1 404 Not Found");
-  header("Location: http://localhost:8081/BBS/404.php");
+  header("Location: 404.php");
 }
 
 $format_url = ucwords($url);
