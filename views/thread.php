@@ -58,7 +58,7 @@ if(is_array($threads) && is_array($reses))
   {
     echo '<ul class="list-group">';
     echo "<li class='list-group-item'>{$res['res_id']}&ensp;{$res['user']}&ensp;<br>{$res['comment']}";
-    if (!empty($res['url']))
+    if (!empty($res['url']) && preg_match('/^(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)$/', $res['url']))
     {
       echo "<br><a href={$res['url']}>${res['url']}</a>";
     }
