@@ -23,5 +23,4 @@ if(!is_file($path))
 $format_url = ucwords($url);
 require_once($path);
 $controller = new $format_url($page);
-list($thread_list, $res_list) = $controller->execute();
-
+$controller->execute();
