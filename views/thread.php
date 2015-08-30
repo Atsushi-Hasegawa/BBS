@@ -25,6 +25,16 @@
 echo '<br>';
 if(is_array($threads) && is_array($reses))
 {
+  if(empty($reses))
+  {
+    $this->display_thread_page();
+  }
+  else
+  {
+    $thread_id = isset($_GET['thread_id']) ? htmlspecialchars($_GET['thread_id']) : 1;
+    $res_page = isset($_GET['res_page']) ? htmlspecialchars($_GET['res_page']) : 1;
+    $this->display_res_page($thread_id, $res_page);
+  }
   echo '<div class="panel panel-default">';
   foreach($threads as $thread)
   {
@@ -44,10 +54,7 @@ if(is_array($threads) && is_array($reses))
     echo "スレ名<br><input type='text' id='title' value='{$thread['title']}'><br>";
     echo '<input type="button" value="修正" onClick="update_thread()">';
     echo '<span id="update_alert"></span>';
-  }
   /** スレの削除 **/
-  if (isset($_GET['thread_id']))
-  {
     echo "<script src='template/js/delete.js'></script>";
     echo "<input type='hidden' id='type' value='delete'>";
     echo "<input type='hidden' id='thread_id' value=" . $_GET["thread_id"] . ">";
