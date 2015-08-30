@@ -1,24 +1,31 @@
-$(function() {
-    $('#submit').click(function() {
-      if(check_input() == true) {
+
+function update_thread()
+{
+  if(check_input() == true) 
+  {
+    if(window.confirm("修正しますか?"))
+    {
       $.ajax({
-             type: "POST",
-             url: "index.php?url=alter_thread&type=update",
-             data:{"title":$("#title").val(), 
-                   "type":$("#type").val(),
-                   "thread_id":$("#thread_id").val()
-              },
-             success: function(msg) {
-               $("#title").val('');
-               $("#update_alert").text('スレッドの内容を修正しました');
-             },
-             error: function(msg){
-               console.log(msg);
-             }
+        type: "POST",
+        url: "index.php?url=alter_thread&type=update",
+        data:{
+          "title":$("#title").val(), 
+          "type":$("#type").val(),
+          "thread_id":$("#thread_id").val()
+        }
       });
-      }
-    });
-});
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+  else
+  {
+    return false;
+  }
+}
 
 function check_input()
 {

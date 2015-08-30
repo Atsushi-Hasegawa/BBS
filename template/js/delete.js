@@ -1,14 +1,22 @@
-$(function(){
-  $('#submit').click(function() {
+function delete_thread()
+{
+  if(window.confirm('æœ¬å½“ã«å‰Šé™¤ã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã­?'))
+  {
     $.ajax({
       type:"POST",
       url:"index.php?url=alter_thread&type=delete&thread_id="+ $("#thread_id").val(),
       data:{"thread_id":$("#thread_id").val(),
             "type":$("#type").val()
        },
-      success: function(msg) {
-        $("#delete_alert").text("¿¿¿¿¿¿¿¿¿");
-      }
-   });
- });
-});
+       success: function(msg)
+       {
+         location.href =   "index.php?url=thread";
+       }
+    });
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}

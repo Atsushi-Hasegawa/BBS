@@ -12,7 +12,7 @@
    </head>
    <body>
    <div class="center">
-    <input type="hidden" id="type" value="delete">
+    <input type="hidden" id="type" value="update">
     <input type="hidden" id="thread_id" value="<?php echo $_GET['thread_id'];?>">
     <div class="col-xs-6 col-md-4"></div>
     <div class="col-xs-6 col-md-4">

@@ -17,8 +17,6 @@
   if(isset($_GET['thread_id']))
   {
     echo "<li role='presentation'><a href=index.php?url=response&thread_id={$_GET['thread_id']}>レス作成</a>";
-    echo "<li role='presentation'><a href=index.php?url=alter_thread&type=delete&thread_id={$_GET['thread_id']}>スレッド削除</a>";
-    echo "<li role='presentation'><a href=index.php?url=alter_thread&type=update&thread_id={$_GET['thread_id']}>スレッド修正</a>";  
   }
 ?>
 <li role="presentation"><a href="index.php?url=logout">Logout</a></li>
@@ -37,6 +35,24 @@ if(is_array($threads) && is_array($reses))
     echo '</div>';
   }
   echo '</div>';
+  /** スレの修正 **/
+  if(isset($_GET['thread_id']))
+  {
+    echo "<script src='template/js/update.js'></script>";
+    echo "<input type='hidden' id='type' value='update'>";
+    echo "<input type='hidden' id='thread_id' value=" . $_GET["thread_id"] . ">";
+    echo "スレ名<br><input type='text' id='title' value='{$thread['title']}'><br>";
+    echo '<input type="button" value="修正" onClick="update_thread()">';
+    echo '<span id="update_alert"></span>';
+  }
+  /** スレの削除 **/
+  if (isset($_GET['thread_id']))
+  {
+    echo "<script src='template/js/delete.js'></script>";
+    echo "<input type='hidden' id='type' value='delete'>";
+    echo "<input type='hidden' id='thread_id' value=" . $_GET["thread_id"] . ">";
+    echo '<input type="button" value="削除" onClick="delete_thread()">';
+  }
   echo '<div class="panel-body">';
   foreach($reses as $res)
   {

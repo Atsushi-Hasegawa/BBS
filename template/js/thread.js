@@ -8,7 +8,7 @@ $(function() {
     {
       response = msg;
       get_thread_data();
-      $("#disp_thread").text("スレッドの登録が完了しました");
+      //$("#disp_thread").text("スレッドの登録が完了しました");
     }
   });
 });
@@ -33,6 +33,6 @@ function get_thread_data()
       disp_thread += "</div>";
     }
       disp_thread += "</div>";
-    $("#disp_thread").html(disp_thread);
+    $("#disp_thread").text(disp_thread);
   }
 }
