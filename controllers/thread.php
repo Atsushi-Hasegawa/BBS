@@ -23,7 +23,6 @@ class Thread
     {
       if(!isset($_GET['thread_id']))
       {
-        $this->display_thread_page();
         $this->output($this->get_thread_list());
       }
       else
@@ -34,7 +33,6 @@ class Thread
           $res_page = htmlspecialchars($_GET['res_page']);
         }
         $thread_id = htmlspecialchars($_GET['thread_id']);
-        $this->display_res_page($thread_id, $res_page);
         $this->output($this->models->get_thread_list($thread_id),
         $this->models->get_res_num_by_page($thread_id, $res_page, $this->disp_num));
       }
