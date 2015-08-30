@@ -51,7 +51,11 @@ class Response
       $user = htmlspecialchars($_POST['user']);
       $comment = htmlspecialchars($_POST['comment']);
       $url = htmlspecialchars($_POST['url']);
-      $image = htmlspecialchars($this->upload_img());
+      $image = null;
+      if(!empty($_FILES['upfile']['tmp_name']))
+      {
+        $image = htmlspecialchars($this->upload_img());
+      }
       $msg = $this->models->insert_comment($thread_id, $user, $comment,$url, $image);
     }
     return $msg;
