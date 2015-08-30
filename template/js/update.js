@@ -12,6 +12,10 @@ function update_thread()
           "title":$("#title").val(), 
           "type":$("#type").val(),
           "thread_id":$("#thread_id").val()
+        },
+        success: function(msg)
+        {
+          location.href="index.php?url=thread";
         }
       });
       return true;
