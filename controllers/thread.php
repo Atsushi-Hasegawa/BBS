@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . "/../views/thread.php");
+//require_once(__DIR__ . "/../views/thread.php");
 class Thread
 {
   private $models;
@@ -24,7 +24,7 @@ class Thread
       if(!isset($_GET['thread_id']))
       {
         $this->display_thread_page();
-        return array($this->get_thread_list(), array());
+        $this->output($this->get_thread_list());
       }
       else
       {
@@ -35,10 +35,15 @@ class Thread
         }
         $thread_id = htmlspecialchars($_GET['thread_id']);
         $this->display_res_page($thread_id, $res_page);
-        return array($this->models->get_thread_list($thread_id), 
-            $this->models->get_res_num_by_page($thread_id, $res_page, $this->disp_num));
+        $this->output($this->models->get_thread_list($thread_id),
+        $this->models->get_res_num_by_page($thread_id, $res_page, $this->disp_num));
       }
     }
+  }
+
+  public function output($threads, $reses = array())
+  {
+    require_once(__DIR__ . "/../views/thread.php");
   }
 
   public function get_thread_list()
