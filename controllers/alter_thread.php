@@ -17,26 +17,27 @@ class Alter_Thread
     $path = null;
     if(empty($_SESSION['user']))
     {
-      return header("Location: index.php?url=login");
+      header("Location: index.php?url=login");
+      exit;
     }
     $sw = isset($_GET['type'])? $_GET['type']: null;
     switch($sw)
     {
       case "create":
         $msg = $this->create();
-        $path = __DIR__ . "/../views/create.php";
+        $path = __DIR__ . "/../views/create.html";
         break;
       case "update":
         $msg = $this->update();
-        $path = __DIR__ . "/../views/update.php";
+        $path = __DIR__ . "/../views/update.html";
         break;
       case "delete":
         $msg = $this->delete();
-        $path = __DIR__ . "/../views/delete.php";
+        $path = __DIR__ . "/../views/delete.html";
         break;
       default:
         $msg = 'type[操作]が入力されていません.';
-        $path = __DIR__ . "/../views/index.php";
+        $path = __DIR__ . "/../views/index.html";
         break;
     }
     require_once($path);

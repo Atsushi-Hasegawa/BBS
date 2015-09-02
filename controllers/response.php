@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . "/../views/response.php");
+require_once(__DIR__ . "/../views/response.html");
 class Response
 {
   private $models;

@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . "/../views/add.php");
+require_once(__DIR__ . "/../views/add.html");
 class Add_User
 {
 	private $models;

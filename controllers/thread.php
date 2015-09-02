@@ -41,7 +41,7 @@ class Thread
 
   public function output($threads, $reses = array())
   {
-    require_once(__DIR__ . "/../views/thread.php");
+    require_once(__DIR__ . "/../views/thread.html");
   }
 
   public function get_thread_list()
