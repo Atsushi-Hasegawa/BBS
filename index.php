@@ -22,4 +22,4 @@ $format_url = ucwords($url);
 require_once($path);
 $controller = new $format_url($page);
 $controller->execute();
-exit
+exit;
