@@ -14,7 +14,7 @@ class Response
 
   public function execute()
   {
-    $msg = "";
+    $msg = '';
     if(empty($_SESSION['user']))
     {
       return header("Location: index.php?url=login");
@@ -32,7 +32,7 @@ class Response
 
   public function create()
   {
-    $msg = "";
+    $msg = '';
     if(!isset($_POST['thread_id']) && !is_numeric($_POST['thread_id']))
     { 
       $msg = 'スレッドIDが入力されていません.';
@@ -63,7 +63,7 @@ class Response
 
   public function upload_img()
   {
-    $file_path = "";
+    $file_path = '';
     try {
       if(!is_uploaded_file($_FILES['upfile']['tmp_name']))
       {
@@ -78,8 +78,7 @@ class Response
       return $file_path;
     } catch(Exception $e)
       {
-        echo $e->getMessage();
-        return $file_path;
+        return echo $e->getMessage();
       }
   }
 }
