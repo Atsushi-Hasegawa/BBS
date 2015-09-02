@@ -13,7 +13,7 @@ class Alter_Thread
 
   public function execute()
   {
-    $msg = "";
+    $msg = '';
     $path = null;
     if(empty($_SESSION['user']))
     {
@@ -46,7 +46,7 @@ class Alter_Thread
 
   public function create()
   {
-    $msg = "";
+    $msg = '';
     if(empty($_POST['title'])) 
     {
       $msg = 'タイトルが入力されていません.';
@@ -61,7 +61,7 @@ class Alter_Thread
 
   public function update()
   {
-    $msg = "";
+    $msg = '';
     if(empty($_POST['thread_id']) || empty($_POST['title']))
     {
       $msg = 'スレッドIDが入力されていません.';
@@ -77,7 +77,7 @@ class Alter_Thread
 
   public function delete()
   {
-    $msg = "";
+    $msg = '';
     if(!empty($_POST['thread_id']))
     {
       $thread_id = htmlspecialchars($_POST['thread_id']);
@@ -85,7 +85,7 @@ class Alter_Thread
     }
     else 
     {
-      $msg = "スレッドIDが入力されていません";
+      $msg = 'スレッドIDが入力されていません';
     }
     return $msg;
   }

@@ -25,7 +25,7 @@ class Response
     }
     else
     {
-      $msg = "type[操作]が入力されていません";
+      $msg = 'type[操作]が入力されていません';
     }
     return $msg;
   }
@@ -35,15 +35,15 @@ class Response
     $msg = "";
     if(!isset($_POST['thread_id']) && !is_numeric($_POST['thread_id']))
     { 
-      $msg = "スレッドIDが入力されていません.";
+      $msg = 'スレッドIDが入力されていません.';
     }
     else if(!isset($_POST['user']) && !is_string($_POST['user']))
     {
-      $msg = "ユーザが入力されていません.";
+      $msg = 'ユーザが入力されていません.';
     }
     else if(!isset($_POST['comment']) && !is_string($_POST['comment']))
     {
-      $msg = "コメントが入力されていません.";
+      $msg = 'コメントが入力されていません.';
     }
     else
     {
@@ -67,12 +67,12 @@ class Response
     try {
       if(!is_uploaded_file($_FILES['upfile']['tmp_name']))
       {
-        throw new Exception("ファイルが選択されませんでした");
+        throw new Exception('ファイルが選択されませんでした');
       }
       $file_path = "files/" . htmlspecialchars($_FILES['upfile']['name']);
       if(!move_uploaded_file($_FILES['upfile']['tmp_name'], $file_path))
       {
-        throw new Exception("ファイルをアップロードできませんでした");
+        throw new Exception('ファイルをアップロードできませんでした');
       }
       chmod($file_path, 0644);
       return $file_path;
