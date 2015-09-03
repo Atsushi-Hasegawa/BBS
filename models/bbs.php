@@ -114,5 +114,4 @@ class BBS extends DataBase
   return $this->select($sql, $bind_param);
  }
 }
-?>
 

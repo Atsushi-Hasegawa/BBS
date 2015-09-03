@@ -59,5 +59,4 @@ class DataBase
 		return $stmt->fetchAll();
 	}
 }
-?>
 
