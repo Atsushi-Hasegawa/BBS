@@ -44,19 +44,20 @@ class DataBase
 		{
 			$stmt->bindParam($option[0], $option[1], $option[2]);
 		}
-		return $stmt->execute();
+		$stmt->execute();
+    if(preg_match("/SELECT/i", $sql) !== 1)
+    {
+      return false;
+    } 
+    else
+    {
+      return $stmt->fetchAll();
+    }
 	}
 
 	public function select($sql, array $data_list)
 	{
-		if(!is_string($sql)) return array();
-		$stmt = $this->pdo->prepare($sql);
-		foreach($data_list as $data)
-		{
-			$stmt->bindParam($data[0], $data[1], $data[2]);
-		}
-		$stmt->execute();
-		return $stmt->fetchAll();
+		return $this->query($sql, $data_list);
 	}
 }
 
